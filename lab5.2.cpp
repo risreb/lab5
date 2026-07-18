@@ -3,63 +3,172 @@
 #include <Windows.h>
 
 using namespace std;
+string chislo(int x)
 
-int main()
 {
 
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+    if (x < 0)
 
+        return "минус " + chislo(-x);
 
-    string pol, znak;
+    if (x == 100)
 
-    int vozrast;
+        return "сто";
 
-    cout << "Введите пол: ";
-
-    cin >> pol;
-
-    cout << "Введите знак зодиака: ";
-
-    cin >> znak;
-
-    cout << "Введите возраст: ";
-
-    cin >> vozrast;
-
-    cout << "Ваше предсказание: ";
-
-    if (pol == "мужчина" &&
-
-        (znak == "рак" || znak == "скорпион" || znak == "рыбы") &&
-
-        vozrast < 40)
+    switch (x)
 
     {
 
-        cout << "Сегодня очень плодотворный день. Можно добиться того, что прежде казалось почти невозможным.";
+    case 0: return "ноль";
+
+    case 1: return "один";
+
+    case 2: return "два";
+
+    case 3: return "три";
+
+    case 4: return "четыре";
+
+    case 5: return "пять";
+
+    case 6: return "шесть";
+
+    case 7: return "семь";
+
+    case 8: return "восемь";
+
+    case 9: return "девять";
+
+    case 10: return "десять";
+
+    case 11: return "одиннадцать";
+
+    case 12: return "двенадцать";
+
+    case 13: return "тринадцать";
+
+    case 14: return "четырнадцать";
+
+    case 15: return "пятнадцать";
+
+    case 16: return "шестнадцать";
+
+    case 17: return "семнадцать";
+
+    case 18: return "восемнадцать";
+
+    case 19: return "девятнадцать";
 
     }
 
-    else if (pol == "женщина" &&
-
-        (znak == "телец" || znak == "дева" || znak == "козерог") &&
-
-        vozrast >= 15 && vozrast <= 30)
+    if (x >= 20 && x <= 29)
 
     {
 
-        cout << " Сегодняшний вечер подходит для общения с друзьями, проведения домашних праздников и импровизированных вечеринок.";
+        if (x == 20) return "двадцать";
+
+        return "двадцать " + chislo(x % 10);
 
     }
 
-    else
+    if (x >= 30 && x <= 39)
 
     {
 
-        cout << "Гороскоп для вас находится в разработке. Приходите чуточку позже ;)";
+        if (x == 30) return "тридцать";
+
+        return "тридцать " + chislo(x % 10);
 
     }
 
-    return 0;
+    if (x >= 40 && x <= 49)
+
+    {
+
+        if (x == 40) return "сорок";
+
+        return "сорок " + chislo(x % 10);
+
+    }
+
+    if (x >= 50 && x <= 59)
+
+    {
+
+        if (x == 50) return "пятьдесят";
+
+        return "пятьдесят " + chislo(x % 10);
+
+    }
+
+    if (x >= 60 && x <= 69)
+
+    {
+
+        if (x == 60) return "шестьдесят";
+
+        return "шестьдесят " + chislo(x % 10);
+
+    }
+
+    if (x >= 70 && x <= 79)
+
+    {
+
+        if (x == 70) return "семьдесят";
+
+        return "семьдесят " + chislo(x % 10);
+
+    }
+
+    if (x >= 80 && x <= 89)
+
+    {
+
+        if (x == 80) return "восемьдесят";
+
+        return "восемьдесят " + chislo(x % 10);
+
+    }
+
+    if (x >= 90 && x <= 99)
+
+    {
+
+        if (x == 90) return "девяносто";
+
+        return "девяносто " + chislo(x % 10);
+
+    }
+
+    return "число вне диапазона";
 }
+
+    int main()
+    {
+
+        SetConsoleCP(1251);
+        SetConsoleOutputCP(1251);
+
+        int a, b;
+
+        cout << "Введите целое число: ";
+        cin >> a;
+
+        cout << "Введите целое число: ";
+        cin >> b;
+
+        if (a > b)
+        {
+            cout << chislo(a) << " больше " << chislo(b);
+        }
+        else if (a < b)
+        {
+            cout << chislo(a) << " меньше " << chislo(b);
+        }
+        else
+        {
+            cout << chislo(a) << " равно " << chislo(b);
+        }
+        return 0;
+    }
